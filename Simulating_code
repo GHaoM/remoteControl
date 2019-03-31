@@ -1,0 +1,43 @@
+// Hao Miao
+// ECE 387
+// Remote Control simulation
+// check more on the WiKi page
+
+int buzzer = 11; //select the pin for the buzzer
+
+int sensor1 = 0; // variable to store the value coming from the sensor
+
+void setup() {
+
+Serial.begin(9600);
+
+// declare the buzzer
+
+pinMode(buzzer, OUTPUT);
+
+} 
+
+void loop() 
+{
+
+//Read the sensor value:
+
+sensor1 = analogRead(A0);
+
+Serial.println(sensor1);
+
+//activate the buzzer
+
+if (sensor1>1000)
+{
+
+digitalWrite(buzzer, HIGH);
+
+delay(100);
+
+digitalWrite(buzzer, LOW);
+
+delay(50); 
+}
+
+}
